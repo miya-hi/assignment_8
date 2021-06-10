@@ -1,0 +1,12 @@
+<div id="wrapper">
+<%= form_with(model: @post, local: true) do |form| %>
+<div class="field">
+  <div class="new_post"><%= form.label :画像 %></div>
+  <%= form.file_field :image %>
+</div>
+<br>
+<%= form.submit "シェア" %>
+<% end %>
+<br>
+<div class="button"><%= link_to "ホーム", posts_path %></div>
+</div>
