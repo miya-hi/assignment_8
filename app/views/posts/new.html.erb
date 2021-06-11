@@ -1,5 +1,5 @@
 <div id="wrapper">
-<%= form_with(model: @post, local: true) do |form| %>
+<%= form_with(model: @post, local: true, url: confirm_posts_path) do |form| %>
 <div class="field">
   <div class="new_post"><%= form.label :画像 %></div>
   <%= form.file_field :image %>

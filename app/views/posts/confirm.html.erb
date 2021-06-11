@@ -1,0 +1,10 @@
+<div class="title">この内容で投稿</div>
+<%= form_with(model: @post, local: true)do |form| %>
+  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+  <%= form.hidden_field :image_cache %>
+  <p><%= form.submit  "投稿" %></p>
+<% end %>
+<%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: 'back' %>
+<% end %>
