@@ -1,10 +1,2 @@
-<div id="wrapper">
-<%= form_with(model: @post, local: true) do |form| %>
-<div class="field">
-  <div><%= image_tag(@post.image.url) if @post.image && @post.image.url %></div>
-  <%= form.file_field :image %>
-  <%= form.hidden_field :image_cache %>
-</div>
-<%= form.submit "投稿" %>
-<% end %>
-</div>
+<div class="title">編集する</div>
+<%= render 'form' %>
