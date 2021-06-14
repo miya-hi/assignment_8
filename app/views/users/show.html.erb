@@ -2,5 +2,3 @@
 <div><%= @user.name %>のページ</div>
 <div><%= image_tag @user.image.url %></div>
 <td><%= link_to "プロフィールを編集する", edit_user_path(@user.id) %></td>
-<br>
-<p>メールアドレス: <%= @user.email %></p>

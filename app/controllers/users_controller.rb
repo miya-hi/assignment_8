@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id), notice:"ログインしました"
     else
       render :new
     end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
   def update
     if @user.update(user_params)
-      redirect_to action: :show, notice: "編集しました"
+      redirect_to user_path, notice: "編集しました"
     else
       render :edit
     end
