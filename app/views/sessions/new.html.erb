@@ -1,4 +1,7 @@
 <div id="title">ログイン</div>
+<% flash.each do |key, value| %>
+  <%= content_tag(:div, value, class: "#{key}") %>
+<% end %>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   <%= f.label :Email %>
   <%= f.email_field :email %>
