@@ -1,5 +1,7 @@
 <p><%= notice %></p>
 <div><%= @user.name %>のページ</div>
 <div><%= image_tag @user.image.url %></div>
+<% if current_user.id == @user.id %>
 <td><%= link_to "プロフィールを編集する", edit_user_path(@user.id) %></td>
+<% end %>
 <td><%= link_to "投稿一覧へ", posts_path %></td>
