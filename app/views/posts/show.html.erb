@@ -1,4 +1,5 @@
 <div id="wrapper">
-<div><%= image_tag @post.image.url %></div>
-<div><%= link_to "ホーム", posts_path %></div>
+  <div><%= image_tag @post.image.url %></div>
+  <div><%= @post.content %></div>
+  <div><%= link_to "ホーム", posts_path %></div>
 </div>
