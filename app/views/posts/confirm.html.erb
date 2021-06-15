@@ -1,14 +1,14 @@
-<div id="wrapper">
-  <div class="title">この内容で投稿</div>
+<h1 class="title">この内容で投稿</h1>
+  <table>
     <%= form_with(model: @post, url:posts_path, local: true)do |form| %>
-      <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+      <tr><td><%= image_tag(@post.image.url) if @post.image && @post.image.url %></tr></td>
       <%= form.hidden_field :image_cache %>
-      <%= @post.content %>
+      <tr><td><%= @post.content %></tr></td>
       <%= form.hidden_field :content %>
       <p><%= form.submit  "投稿" %></p>
     <% end %>
-    <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
-      <%= form.hidden_field :image_cache %>
-      <%= form.submit "戻る", name: 'back' %>
-    <% end %>
-</div>
+  </table>
+  <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
+    <%= form.hidden_field :image_cache %>
+    <%= form.submit "戻る", name: 'back' %>
+  <% end %>

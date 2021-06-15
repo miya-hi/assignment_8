@@ -1,25 +1,26 @@
-<div id="wrapper">
-  <p><%= notice %></p>
-  <h1>投稿一覧</h1>
+<h2><%= notice %></h2>
+<h1 class="title">投稿一覧</h1>
+<div class="table-responsive">
   <table>
     <tr>
-      <th>投稿者</th>
+      <th >投稿者</th>
       <th>画像</th>
       <th>内容</th>
+      <th>リンク</th>
     </tr>
-    <% @posts.each do |post| %>
     <tr>
-      <td class="content"><%= post.user.name %></td>
-      <td class="content"><%= image_tag post.image.url %></td>
-      <td class="content"><%= post.content %></td>
-      <td><%= link_to'詳細',post_path(post.id) %></td>
-      <% if current_user.id == post.user.id %>
-      <td><%= link_to'編集',edit_post_path(post.id) %></td>
-      <td><%= link_to'削除',post_path(post.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      <% @posts.each do |post| %>
+        <td><%= post.user.name %></td>
+        <td><%= image_tag post.image.url %></td>
+        <td><%= post.content %></td>
+        <td><div><%= link_to'詳細',post_path(post.id) %></div>
+        <% if current_user.id == post.user.id %>
+          <div><%= link_to'編集',edit_post_path(post.id) %></div>
+          <div><%= link_to'削除',post_path(post.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div></td>
+        <% end %>
       <% end %>
     </tr>
-  <% end %>
   </table>
-  <br>
-  <%= link_to'新しく投稿',new_post_path %>
 </div>
+<br>
+<%= link_to'新しく投稿',new_post_path %>

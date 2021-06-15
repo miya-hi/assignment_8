@@ -1,13 +1,14 @@
-
-<div id="title">お気に入り</div>
+<div id="container">
+<h1 class="title">お気に入り</h1>
 <table>
   <tr>
     <th>投稿者</th>
     <th>内容</th>
     <th>画像</th>
     </tr>
-  <% @favorites.each do |favorite| %>
     <tr>
+  <% @favorites.each do |favorite| %>
+
       <td><%= favorite.post.user.name %></td>
       <td><%= favorite.post.content %></td>
       <td><%= image_tag favorite.post.image.url %></td>
@@ -15,3 +16,4 @@
   <% end %>
 </table>
 <div><%= link_to "投稿一覧へ", posts_path %></div>
+</div>
