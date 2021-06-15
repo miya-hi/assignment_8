@@ -3,23 +3,23 @@
 <div class="table-responsive">
   <table>
     <tr>
-      <th >投稿者</th>
+      <th>投稿者</th>
       <th>画像</th>
       <th>内容</th>
       <th>リンク</th>
     </tr>
+    <% @posts.each do |post| %>
     <tr>
-      <% @posts.each do |post| %>
-        <td><%= post.user.name %></td>
-        <td><%= image_tag post.image.url %></td>
-        <td><%= post.content %></td>
-        <td><div><%= link_to'詳細',post_path(post.id) %></div>
-        <% if current_user.id == post.user.id %>
-          <div><%= link_to'編集',edit_post_path(post.id) %></div>
-          <div><%= link_to'削除',post_path(post.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div></td>
+      <td><%= post.user.name %></td>
+      <td><%= image_tag post.image.url %></td>
+      <td><%= post.content %></td>
+      <td><div><%= link_to'詳細',post_path(post.id) %></div>
+      <% if current_user.id == post.user.id %>
+        <div><%= link_to'編集',edit_post_path(post.id) %></div>
+        <div><%= link_to'削除',post_path(post.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></div></td>
         <% end %>
-      <% end %>
     </tr>
+      <% end %>
   </table>
 </div>
 <br>
