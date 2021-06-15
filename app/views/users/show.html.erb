@@ -4,4 +4,5 @@
 <% if current_user.id == @user.id %>
 <td><%= link_to "プロフィールを編集する", edit_user_path(@user.id) %></td>
 <% end %>
+<td><%= link_to "お気に入り一覧へ", favorites_path %></td>
 <td><%= link_to "投稿一覧へ", posts_path %></td>

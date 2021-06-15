@@ -1,4 +1,7 @@
 class FavoritesController < ApplicationController
+  def index
+    @favorites = current_user.favorites
+  end
   def create
     favorite = current_user.favorites.create(post_id: params[:post_id])
     redirect_to posts_path, notice: "#{favorite.post.user.name}さんの投稿をお気に入り登録しました"

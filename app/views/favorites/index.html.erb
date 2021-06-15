@@ -1,0 +1,17 @@
+
+<div id="title">お気に入り</div>
+<table>
+  <tr>
+    <th>投稿者</th>
+    <th>内容</th>
+    <th>画像</th>
+    </tr>
+  <% @favorites.each do |favorite| %>
+    <tr>
+      <td><%= favorite.post.user.name %></td>
+      <td><%= favorite.post.content %></td>
+      <td><%= image_tag favorite.post.image.url %></td>
+      </tr>
+  <% end %>
+</table>
+<div><%= link_to "投稿一覧へ", posts_path %></div>
