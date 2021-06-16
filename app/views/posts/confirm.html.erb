@@ -5,9 +5,9 @@
       <%= form.hidden_field :image_cache %>
       <tr><td><%= @post.content %></tr></td>
       <%= form.hidden_field :content %>
+  </table>
       <p><%= form.submit  "投稿" %></p>
     <% end %>
-  </table>
   <%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
     <%= form.hidden_field :image_cache %>
     <%= form.submit "戻る", name: 'back' %>
